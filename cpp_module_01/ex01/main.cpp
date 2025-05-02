@@ -13,8 +13,7 @@ static int stringToInt(const std::string& str) {
     return value;
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     if (argc != 3) {
         std::cerr << "Usage: " << argv[0] << " <number_of_zombies>" << " <name_of_the_zombies>" << std::endl;
         return 1;
