@@ -3,8 +3,9 @@ NAME    = sed
 CXX     = c++
 FLAGS   = -Wall -Wextra -Werror -std=c++98
 
-SRCS    = main.cpp
+SRCS    = main.cpp Replacer.cpp
 OBJS    = $(SRCS:.cpp=.o)
+HEADER	= Replacer.hpp
 REPS	= *.replace
 
 all: $(NAME)
@@ -13,7 +14,7 @@ $(NAME): $(OBJS)
 	@$(CXX) $(FLAGS) -o $(NAME) $(OBJS)
 	@echo "\033[32mCompiled using\033[0m\n\n\t<<< c++ -Wall -Wextra -Werror -std=c++98 >>>\n"
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	@$(CXX) $(FLAGS) -c $< -o $@
 
 clean:

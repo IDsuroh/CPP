@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <sstream>
+#include "Replacer.hpp"
 
 int main(int argc, char **argv)
 {
@@ -30,21 +30,10 @@ int main(int argc, char **argv)
         std::cerr << "Error: could not open file to write" << outfile << std::endl;
         return 1;
     }
-    std::string line, out_line;
+    Replacer replacer(s1, s2);
+    std::string line;
     while (std::getline(ifs, line)) {
-        out_line.clear();
-        size_t  pos = 0;
-        while (true)    {
-            size_t  found = line.find(s1, pos);
-            if (found == std::string::npos) {
-                out_line.append(line, pos, std::string::npos);
-                break;
-            }
-            out_line.append(line, pos, found - pos);
-            out_line += s2;
-            pos = found + s1.length();
-        }
-        ofs << out_line;
+        ofs << replacer.replaceInLine(line);
         if (!ifs.eof()) {
             ofs << std::endl;
         }
