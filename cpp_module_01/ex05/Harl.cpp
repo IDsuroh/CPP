@@ -32,13 +32,13 @@ Harl::~Harl()
 {}
 
 void    Harl::complain( std::string level ) {
-    typedef void    (Harl::*HarlMemFn)();
     static const std::string    angerlevel[] = {
         "DEBUG",
         "INFO",
         "WARNING",
         "ERROR"
     };
+    typedef void    (Harl::*HarlMemFn)();
     static const HarlMemFn  funcs[] = {
         &Harl::debug,
         &Harl::info,
