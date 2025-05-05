@@ -8,7 +8,7 @@ int Account::_totalAmount           =   0;
 int Account::_totalNbDeposits       =   0;
 int Account::_totalNbWithdrawals    =   0;
 
-// Private helper funciton to print a timestamp (YYYYMMDD_HHMMSS)
+// function to print a timestamp (YYYYMMDD_HHMMSS)
 void    Account::_displayTimestamp(void)    {
     std::time_t now =   std::time(NULL);
     std::tm*    tm  =   std::localtime(&now);

@@ -5,8 +5,7 @@
 Zombie*    newZombie(std::string name);
 void       randomChump(std::string name);
 
-int main()
-{
+int main()  {
     std::cout << "=== Stack-allocated Zombies ===" << std::endl;
     // Default constructor
     Zombie z1;
