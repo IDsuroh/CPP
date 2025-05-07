@@ -31,11 +31,9 @@ int main(int argc, char **argv) {
 for (std::string::size_type j = 0; j < s.size(); ++j) { … }
 – guarantees no signed/unsigned mix, no compiler warnings, and correct behavior even on extremely large strings.
 
-<<<<<<< HEAD
 whenever you need the raw numeric value of a byte—especially before calling functions like std::toupper
 that expect an unsigned-char range—you cast explicitly to unsigned char:
     unsigned char uc = static_cast<unsigned char>(someChar);
-=======
 Why std::basic_string<char>::size_type?
 That’s the right unsigned type for string indices—no signed/unsigned mismatch, and it can represent very large strings.
 It is a type alias (typedef) defined inside the std::basic_string template that tells you what integer type to use
@@ -53,6 +51,5 @@ that expect an unsigned-char range—you cast explicitly to unsigned char:
 
     unsigned char uc = static_cast<unsigned char>(someChar);
 
->>>>>>> fd4a0b80a84b42c2a1c961f0b7a61ab3ecfdcf2b
 This guarantees you get a 0…255 value, no surprises if plain char happened to be signed on your system.
 */
