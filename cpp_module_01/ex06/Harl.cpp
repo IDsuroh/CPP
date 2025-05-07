@@ -46,21 +46,29 @@ void    Harl::complain( std::string level ) {
         "WARNING",
         "ERROR"
     };
-    typedef void    (Harl::*HarlMemFn)();
-    static const HarlMemFn  funcs[] = {
-        &Harl::debug,
-        &Harl::info,
-        &Harl::warning,
-        &Harl::error
-    };
-    for (size_t i = 0; i < sizeof(angerlevel)/sizeof(*angerlevel); ++i) {
+    size_t idx = -1;
+    for (size_t i = 0; i < (sizeof(angerlevel)/sizeof(*angerlevel)); ++i)  {
         if (angerlevel[i] == level) {
-            while (i < sizeof(angerlevel)/sizeof(*angerlevel))  {
-                (this->*funcs[i])();
-                i++;
-            }
-            return ;
+            idx = i;
+            break ;
         }
     }
-    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+    switch (idx)    {
+    case 0:
+        debug();
+        /* fall through */
+    case 1:
+        info();
+        /* fall through */
+    case 2:
+        warning();
+        /* fall through */
+    case 3:
+        error();
+        break ;
+    default:
+        std::cout
+            << "[ Probably complaining about insignificant problems ]"
+            << std::endl;
+    }
 }
