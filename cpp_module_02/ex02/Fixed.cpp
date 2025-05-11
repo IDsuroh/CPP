@@ -7,7 +7,7 @@ Fixed::Fixed()
 {}
 
 Fixed::Fixed(const Fixed& other)    {
-    this->_rawBits = other._rawBits
+    this->_rawBits = other._rawBits;
 }
 
 Fixed&  Fixed::operator=(const Fixed& other)    {
