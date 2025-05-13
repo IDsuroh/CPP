@@ -37,13 +37,13 @@ int main() {
     Fixed d, e;
     d.setRawBits(100);
     e.setRawBits(200);
-    std::cout << "before chaining: d=" << d.getRawBits()
-              << ", e=" << e.getRawBits() << "\n";
+    std::cout << "before chaining :\nd = " << d.getRawBits()
+              << "\ne = " << e.getRawBits() << "\n";
 
     e = a;  // first assign a into e
     d = e;  // then assign e into d
-    std::cout << "after chaining : d=" << d.getRawBits()
-              << ", e=" << e.getRawBits() << "\n";
+    std::cout << "after chaining :\nd = " << d.getRawBits()
+              << "\ne = " << e.getRawBits() << "\n";
 
     return 0;
 }
