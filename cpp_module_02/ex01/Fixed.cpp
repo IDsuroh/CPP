@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <cmath>
 #include <iostream>
 
 Fixed::Fixed()
@@ -29,4 +30,27 @@ int Fixed::getRawBits(void) const   {
 
 void    Fixed::setRawBits(int const raw)    {
     _rawBits = raw;
+}
+
+Fixed::Fixed(int const i)   {
+    std::cout << "Int constructor called" << std::endl;
+    _rawBits = i << _fbits;
+}
+
+Fixed::Fixed(float const f) {
+    std::cout << "Float constructor called" << std::endl;
+    _rawBits = roundf(f * (1 << _fbits));
+}
+
+float Fixed::toFloat(void)  const   {
+    return static_cast<float>(_rawBits) / (1 << _fbits);
+}
+
+int Fixed::toInt(void)  const   {
+    return _rawBits >> _fbits;
+}
+
+std::ostream& operator<<(std::ostream& os, Fixed const& fx) {
+    os << fx.toFloat();
+    return os;
 }
