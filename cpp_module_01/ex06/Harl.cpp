@@ -123,5 +123,5 @@ default: triggers if idx was still that “not found” value,
 	so you print the catch-all message about insignificant problems.
 
 fall through comment is extremely helpful because it suppresses compile warnings.
-Especially since we are using -Wall flag.
+Especially since we are using -Werror=implicit-fallthrough flag.
 */
