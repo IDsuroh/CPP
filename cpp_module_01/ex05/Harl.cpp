@@ -53,3 +53,18 @@ void    Harl::complain( std::string level ) {
     }
     std::cout << "[ Complaining to the Manager ]" << std::endl;
 }
+
+/*
+An array of pointer-to-member-functions of Harl
+typedef void (Harl::*HarlMemFn)();
+	Says “HarlMemFn is the type “pointer to a Harl member function
+	taking no args and returning void.”
+
+static const HarlMemFn funcs[] = {
+    &Harl::debug,
+    &Harl::info,
+    &Harl::warning,
+    &Harl::error
+};
+	Each entry is the address of one of Harl’s methods.
+*/

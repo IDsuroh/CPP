@@ -21,3 +21,14 @@ std::string Replacer::replaceInLine(const std::string& line) const {
 
     return out;
 }
+
+/*
+
+What is the difference of append and substr?
+In one sentence
+
+    append = glue more text onto the original string.
+
+    substr = cut out a piece and get a new string containing just that piece.
+
+*/

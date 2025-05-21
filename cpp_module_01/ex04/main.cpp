@@ -41,3 +41,34 @@ int main(int argc, char **argv)
     std::cout << "Created => " << outfile << " with " << s1 << " replaced by " << s2 << std::endl;
     return 0;
 }
+
+/*
+std::ifstream ifs(infile.c_str());
+if (!ifs.is_open()) {
+    std::cerr << "Error: could not open file to read " << infile << std::endl;
+    return 1;
+}
+
+const std::string outfile = infile + ".replace";
+std::ofstream ofs(outfile.c_str());
+if (!ofs.is_open()) {
+    std::cerr << "Error: could not open file to write " << outfile << std::endl;
+    return 1;
+}
+ifstream ifs opens infile for reading.
+
+ofstream ofs opens a new file named "<infile>.replace" for writing.
+
+Each gets checked—if opening fails, the program prints an error
+and exits.
+
+In C++, std::ifstream and std::ofstream are the two primary
+file-stream classes you use for file I/O. They live in the
+<fstream> header and are built on top of the lower-level
+file-descriptor APIs, but give you the familiar C++ stream
+interface (>>, <<, getline, etc.) plus automatic resource
+management (RAII).
+Inheritance: derives from std::istream → std::ios → std::ios_base.
+Inheritance: derives from std::ostream → std::ios → std::ios_base.
+
+*/
