@@ -1,18 +1,18 @@
 #include "Brain.hpp"
 
 Brain::Brain() {
-    std::cout << "[Brain] default ctor\n";
+    std::cout << "[Brain] Brain has been formed\n";
     for (int i = 0; i < 100; ++i)
         ideas[i] = "empty";
 }
 
 Brain::Brain(const Brain& other) {
-    std::cout << "[Brain] copy ctor\n";
+    std::cout << "[Brain] Brain has been copied and formed\n";
     *this = other;
 }
 
 Brain& Brain::operator=(const Brain& other) {
-    std::cout << "[Brain] copy assign\n";
+    std::cout << "[Brain] Brain has been switched\n";
     if (this != &other)
         for (int i = 0; i < 100; ++i)
             ideas[i] = other.ideas[i];
@@ -20,5 +20,5 @@ Brain& Brain::operator=(const Brain& other) {
 }
 
 Brain::~Brain() {
-    std::cout << "[Brain] dtor\n";
+    std::cout << "[Brain] Brain has been melted\n";
 }
