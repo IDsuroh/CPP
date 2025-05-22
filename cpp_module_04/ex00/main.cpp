@@ -5,29 +5,40 @@
 #include "WrongCat.hpp"
 
 int main() {
-    std::cout << "=== Correct polymorphism ===" << std::endl;
-    const Animal* meta = new Animal();
+    std::cout << "\t\t=== Correct polymorphism ===\n" << std::endl;
+    const Animal* random = new Animal();
     const Animal* d = new Dog();
     const Animal* c = new Cat();
-    std::cout << d->getType() << std::endl;
-    std::cout << c->getType() << std::endl;
-    c->makeSound();  // Meow~
-    d->makeSound();  // Woof!
-    meta->makeSound(); // generic
-    delete meta;
+
+    std::cout << "\t" << d->getType() << " Barks like ";
+    d->makeSound();
+
+    std::cout << "\t" << c->getType() << " Meows like ";
+    c->makeSound();
+
+    std::cout << "\t" << random->getType() << " makes ";
+    random->makeSound();
+
+    delete random;
     delete d;
     delete c;
 
-    std::cout << "\n=== Wrong polymorphism ===" << std::endl;
-    const WrongAnimal* wa = new WrongAnimal();
-    const WrongAnimal* wc = new WrongCat();
-    std::cout << wc->getType() << std::endl;
-    wc->makeSound(); // still WrongAnimal’s sound, since non-virtual
-    wa->makeSound();
-    delete wa;
-    delete wc;
+    std::cout << "\n\n\t\t=== Wrong polymorphism ===\n" << std::endl;
+    const WrongAnimal* karen = new WrongAnimal();
+    const WrongAnimal* fakecat = new WrongCat();
 
-    std::cout << "\n=== Copy and assignment tests ===" << std::endl;
+    std::cout << "\t" << fakecat->getType() << "should make fakecat sound ->\n\tMeahahahahahaw but it is \n\t";
+    fakecat->makeSound();
+
+    std::cout << "\tThe wrong animal karen is \n\t";
+    karen->makeSound();
+
+    std::cout << "\n\tWhen virtual is not set,\n\tpolymorphism doesn't work and fake cat malfunctions...\n\n";
+    
+    delete fakecat;
+    delete karen;
+
+    std::cout << "\n\n\t\t=== Copy and assignment tests ===\n" << std::endl;
     Dog dog1;
     Dog dog2 = dog1;
     Dog dog3;
