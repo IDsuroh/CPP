@@ -19,8 +19,10 @@ int main() {
 
     // ===> NEW: build array of Animals owning Dogs and Cats
     for (int i = 0; i < N; ++i) {
-        if (i < N/2) zoo[i] = new Dog();
-        else         zoo[i] = new Cat();
+        if (i < N/2)
+            zoo[i] = new Dog();
+        else
+            zoo[i] = new Cat();
     }
 
     // tear down
@@ -32,10 +34,10 @@ int main() {
     Dog copy = original;
 
     // <<< NEW: compare brain pointers to prove deep copy
-    std::cout << "  original.brain ptr = " << original.getBrain() << "\n";
-    std::cout << "      copy.brain ptr = " <<      copy.getBrain() << "\n";
+    std::cout << "  \n\toriginal.brain ptr = " << original.getBrain() << "\n";
+    std::cout << "      \tcopy.brain ptr = " <<      copy.getBrain() << "\n";
     assert(original.getBrain() != copy.getBrain());
-    std::cout << "✅ deep-copy succeeded (distinct Brain pointers)\n";
+    std::cout << "deep-copy succeeded (distinct Brain pointers)\n";
 
     return 0;
 }
