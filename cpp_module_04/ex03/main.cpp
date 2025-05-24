@@ -126,4 +126,14 @@ MateriaSource = the workshop/factory that you teach to “make” spells from th
 
 Character = the practitioner who carries a few spells in their spellbook (inventory) and can cast (use) them on a target.
 
+
+IMateriaSource: “Here’s what a Materia‐factory must do.”
+
+MateriaSource: “Here’s how a Materia‐factory actually works.”
+
+AMateria: “Here’s what every spell/skill looks like.”
+
+Ice/Cure: “Here’s two concrete spells you can cast.”
+
+ICharacter/Character: “Here’s who can carry and use those spells.”
 */
